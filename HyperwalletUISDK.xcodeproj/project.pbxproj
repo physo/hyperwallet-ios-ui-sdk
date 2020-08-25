@@ -88,6 +88,7 @@
 		41759423239716CF00921392 /* TransferMethodConfigurationUSBankCardResponseWithMask.json in Resources */ = {isa = PBXBuildFile; fileRef = 417594132397156700921392 /* TransferMethodConfigurationUSBankCardResponseWithMask.json */; };
 		41759424239716D100921392 /* TransferMethodConfigurationWireAccountResponseWithMask.json in Resources */ = {isa = PBXBuildFile; fileRef = 417594102397156700921392 /* TransferMethodConfigurationWireAccountResponseWithMask.json */; };
 		4175942E239981FC00921392 /* AddTransferMethodWireAccountUSMoreMaskingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4175942D239981FC00921392 /* AddTransferMethodWireAccountUSMoreMaskingTests.swift */; };
+		41762F8624F5C4D2001A24AD /* VenmoAccountResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 41762F8424F5C4C8001A24AD /* VenmoAccountResponse.json */; };
 		41C3CA1C231084DA008A904C /* AddNewTransferMethodsMoreThanOneTransferMethod.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C3CA1B231084DA008A904C /* AddNewTransferMethodsMoreThanOneTransferMethod.json */; };
 		41C3CA1E23108677008A904C /* AddNewTransferMethodOneTransferMethod.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C3CA1D23108677008A904C /* AddNewTransferMethodOneTransferMethod.json */; };
 		41D8361122FB425E003544AB /* TransferFunds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8360F22FB4255003544AB /* TransferFunds.swift */; };
@@ -655,6 +656,7 @@
 		417594122397156700921392 /* TransferMethodConfigurationResponseWithStarMasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TransferMethodConfigurationResponseWithStarMasks.json; path = Individual/TransferMethodConfigurationResponseWithStarMasks.json; sourceTree = "<group>"; };
 		417594132397156700921392 /* TransferMethodConfigurationUSBankCardResponseWithMask.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TransferMethodConfigurationUSBankCardResponseWithMask.json; path = Individual/TransferMethodConfigurationUSBankCardResponseWithMask.json; sourceTree = "<group>"; };
 		4175942D239981FC00921392 /* AddTransferMethodWireAccountUSMoreMaskingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransferMethodWireAccountUSMoreMaskingTests.swift; sourceTree = "<group>"; };
+		41762F8424F5C4C8001A24AD /* VenmoAccountResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VenmoAccountResponse.json; sourceTree = "<group>"; };
 		41C3CA1B231084DA008A904C /* AddNewTransferMethodsMoreThanOneTransferMethod.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddNewTransferMethodsMoreThanOneTransferMethod.json; sourceTree = "<group>"; };
 		41C3CA1D23108677008A904C /* AddNewTransferMethodOneTransferMethod.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddNewTransferMethodOneTransferMethod.json; sourceTree = "<group>"; };
 		41D8360C22FB420F003544AB /* TransferUserFundsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferUserFundsTest.swift; sourceTree = "<group>"; };
@@ -1177,6 +1179,7 @@
 				4A2B949B22F1BBCB000A0F14 /* UserIndividualResponse.json */,
 				DBB50B4622D7CADB0029B74B /* UserIndividualResponseWithoutCountry.json */,
 				644A69C422B127080058E77E /* WireAccountIndividualResponse.json */,
+				41762F8424F5C4C8001A24AD /* VenmoAccountResponse.json */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -2844,6 +2847,7 @@
 				DB55202022E145B800DD65C2 /* BankCardResponse.json in Resources */,
 				DB55202B22E145B800DD65C2 /* UserIndividualResponseWithoutCountry.json in Resources */,
 				DB55201C22E145B800DD65C2 /* BankAccountErrorResponseWithValidationError.json in Resources */,
+				41762F8624F5C4D2001A24AD /* VenmoAccountResponse.json in Resources */,
 				4A2B94B622F1CC74000A0F14 /* UserIndividualResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

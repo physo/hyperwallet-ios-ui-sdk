@@ -42,6 +42,10 @@ extension HyperwalletTransferMethod: GenericCellConfiguration {
                           "to".localized(),
                           getField(TransferMethodField.email.rawValue) ?? "")
 
+        case "VENMO_ACCOUNT":
+                return String(format: "%@",
+                              getField(TransferMethodField.accountId.rawValue) ?? "")
+
         default:
             return String(format: "%@%@",
                           "endingIn".localized(),
