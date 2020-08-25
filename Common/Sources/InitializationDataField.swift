@@ -43,4 +43,6 @@ public enum InitializationDataField: String {
     case transferMethod
     /// Boolean value to check whether foreign exchange rate changed
     case didFxQuoteChange
+    /// User Token, prepaid card token
+    case tokens
 }

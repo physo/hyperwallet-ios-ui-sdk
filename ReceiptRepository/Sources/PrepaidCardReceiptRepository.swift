@@ -24,8 +24,10 @@ public protocol PrepaidCardReceiptRepository {
     ///
     /// - Parameters:
     ///   - prepaidCardToken: the prepaid card token
+    ///   - createdBeforeDate:
     ///   - completion: the callback handler of responses from the Hyperwallet platform
     func listPrepaidCardReceipts(
+        createdBeforeDate: Date,
         prepaidCardToken: String,
         completion: @escaping (Result<HyperwalletPageList<HyperwalletReceipt>?, HyperwalletErrorType>)
         -> Void)
@@ -34,18 +36,20 @@ public protocol PrepaidCardReceiptRepository {
 /// Prepaid card receipt repository
 public final class RemotePrepaidCardReceiptRepository: PrepaidCardReceiptRepository {
     private let yearAgoFromNow = Calendar.current.date(byAdding: .year, value: -1, to: Date())
-
+    private var prepaidCardReceipts = [HyperwalletReceipt]()
     public func listPrepaidCardReceipts(
+        createdBeforeDate: Date,
         prepaidCardToken: String,
         completion: @escaping (Result<HyperwalletPageList<HyperwalletReceipt>?, HyperwalletErrorType>) -> Void) {
         Hyperwallet.shared.listPrepaidCardReceipts(
             prepaidCardToken: prepaidCardToken,
-            queryParam: setUpPrepaidCardQueryParam(),
+            queryParam: setUpPrepaidCardQueryParam(createdBeforeDate),
             completion: ReceiptRepositoryCompletionHelper.performHandler(completion))
     }
 
-    private func setUpPrepaidCardQueryParam() -> HyperwalletReceiptQueryParam {
+    private func setUpPrepaidCardQueryParam(_ createdBeforeDate: Date) -> HyperwalletReceiptQueryParam {
         let queryParam = HyperwalletReceiptQueryParam()
+        queryParam.createdBefore = createdBeforeDate
         queryParam.createdAfter = yearAgoFromNow
         return queryParam
     }

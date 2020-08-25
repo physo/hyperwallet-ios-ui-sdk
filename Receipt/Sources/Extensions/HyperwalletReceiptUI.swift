@@ -49,4 +49,16 @@ public extension HyperwalletUI {
                               parentController: parentController)
             return coordinator
     }
+
+    /// Lists the user's prepaid card transactions.
+    ///
+    /// - Parameter prepaidCardToken: prepaid card token for which transactions are requested
+    /// - Returns: An instance of `ListReceiptCoordinator`
+    func listReceiptCoordinator(parentController: UIViewController, tokens: [String])
+        -> ListReceiptCoordinator {
+            let coordinator = ListReceiptCoordinator()
+            coordinator.start(initializationData: [InitializationDataField.tokens: [tokens]],
+                              parentController: parentController)
+            return coordinator
+    }
 }

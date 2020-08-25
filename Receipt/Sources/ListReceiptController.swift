@@ -49,7 +49,9 @@ final class ListReceiptController: UITableViewController {
     private func initializePresenter() {
         presenter = ListReceiptPresenter(view: self,
                                          prepaidCardToken: initializationData?[InitializationDataField.prepaidCardToken]
-                                            as? String)
+                                            as? String,
+                                         tokens: initializationData?[InitializationDataField.tokens]
+                                            as? [String])
     }
 
     override func willMove(toParent parent: UIViewController?) {

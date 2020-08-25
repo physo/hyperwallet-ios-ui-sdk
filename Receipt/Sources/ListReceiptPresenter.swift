@@ -44,6 +44,9 @@ final class ListReceiptPresenter {
     }()
     private var offset = 0
     private var prepaidCardToken: String?
+    private var prepaidCardCreatedBeforeDate = Date()
+    private let yearAgoFromNow = Calendar.current.date(byAdding: .year, value: -1, to: Date())
+    private var tokens: [String]?
     private lazy var userReceiptRepository = {
         ReceiptRepositoryFactory.shared.userReceiptRepository()
     }()
@@ -56,9 +59,10 @@ final class ListReceiptPresenter {
     private(set) var sectionData = [(key: Date, value: [HyperwalletReceipt])]()
 
     /// Initialize ListReceiptPresenter
-    init(view: ListReceiptView, prepaidCardToken: String? = nil) {
+    init(view: ListReceiptView, prepaidCardToken: String? = nil, tokens: [String]? = nil) {
         self.view = view
         self.prepaidCardToken = prepaidCardToken
+        self.tokens = tokens
     }
 
     func listReceipts() {
@@ -89,6 +93,7 @@ final class ListReceiptPresenter {
         isLoadInProgress = true
         view?.showLoading()
         prepaidCardReceiptRepository.listPrepaidCardReceipts(
+            createdBeforeDate: prepaidCardCreatedBeforeDate,
             prepaidCardToken: prepaidCardToken,
             completion: listPrepaidCardReceiptHandler())
     }
@@ -130,8 +135,20 @@ final class ListReceiptPresenter {
                 switch result {
                 case .success(let receiptList):
                     guard let receiptList = receiptList, let receipts = receiptList.data else { break }
-                    strongSelf.areAllReceiptsLoaded = true
-                    strongSelf.groupReceiptsByMonth(receipts)
+                    strongSelf.groupReceiptsByMonth(receipts.reversed())
+                    if let ascCreatedOnDate = receipts.first?.createdOn {
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+                        if let date = dateFormatter.date(from: ascCreatedOnDate),
+                            date > strongSelf.yearAgoFromNow! {
+                            strongSelf.prepaidCardCreatedBeforeDate = Calendar.current.date(byAdding: .hour,
+                                                                                            value: -1,
+                                                                                            to: date)!
+                            strongSelf.areAllReceiptsLoaded = false
+                        } else {
+                            strongSelf.areAllReceiptsLoaded = true
+                        }
+                    }
 
                 case .failure(let error):
                     guard let prepaidCardToken = strongSelf.prepaidCardToken else { break }
@@ -153,8 +170,10 @@ final class ListReceiptPresenter {
                                                 .firstDayOfMonth()
         })
 
-        let sortedGroupedSections = groupedSections
-            .sorted(by: prepaidCardToken == nil ? { $0.key > $1.key } : { $0.key < $1.key })
+//        let sortedGroupedSections = groupedSections
+//            .sorted(by: prepaidCardToken == nil ? { $0.key > $1.key } : { $0.key < $1.key })
+
+        let sortedGroupedSections = groupedSections.sorted(by: { $0.key > $1.key })
 
         for section in sortedGroupedSections {
             if let sectionIndex = sectionData.firstIndex(where: { $0.key == section.key }) {
