@@ -1,0 +1,54 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/travis/build/hyperwallet/hyperwallet-ios-ui-sdk/Common/Sources/Generics/GenericController.swift",
+      "line": 148,
+      "symbol": "GenericController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/hyperwallet/hyperwallet-ios-ui-sdk/Common/Sources/Helper/Theme.swift",
+      "line": 68,
+      "symbol": "Theme.NavigationBar.largeTitleFont",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/hyperwallet/hyperwallet-ios-ui-sdk/Receipt/Sources/ReceiptDetailController.swift",
+      "line": 127,
+      "symbol": "ReceiptDetailController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/hyperwallet/hyperwallet-ios-ui-sdk/Transfer/Sources/ListTransferDestinationController.swift",
+      "line": 138,
+      "symbol": "ListTransferDestinationController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/hyperwallet/hyperwallet-ios-ui-sdk/Transfer/Sources/ListTransferDestinationController.swift",
+      "line": 142,
+      "symbol": "ListTransferDestinationController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/hyperwallet/hyperwallet-ios-ui-sdk/Transfer/Sources/ListTransferDestinationController.swift",
+      "line": 164,
+      "symbol": "ListTransferDestinationController.tableView(_:viewForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/hyperwallet/hyperwallet-ios-ui-sdk/Transfer/Sources/ListTransferDestinationController.swift",
+      "line": 168,
+      "symbol": "ListTransferDestinationController.tableView(_:heightForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/travis/build/hyperwallet/hyperwallet-ios-ui-sdk"
+}
